@@ -3,9 +3,6 @@ export function toggle(row, cell, arr) {
 
   const grid = [...arr];
   function flip(x, y) {
-    if (!grid[x]) {
-      console.log(x, y);
-    }
     grid[x][y] = !grid[x][y];
   }
 

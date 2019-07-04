@@ -1,5 +1,5 @@
-import React from 'react'
-import Box from './Box'
+import React from 'react';
+import Box from './Box';
 
 export default function Grid({ boxes, rowIndex, handleToggle }) {
   return boxes.map((value, columnIndex) => {

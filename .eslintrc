@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended", "react-app"],
+  "rules": {
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "space-in-parens": ["error"],
+    "object-curly-spacing": ["error", "always"]
+  }
+}

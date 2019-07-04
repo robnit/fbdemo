@@ -1,16 +1,16 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import Grid from './Grid';
-import { toggle, generateGrid } from '../utils'
+import { toggle, generateGrid } from '../utils';
 
 class App extends PureComponent {
   state = { grid: [] };
 
   componentDidMount() {
-    this.setState({ grid: generateGrid(15) })
+    this.setState({ grid: generateGrid(15) });
   }
 
   handleToggle = (row, col) => {
-    this.setState({ grid: toggle(row, col, this.state.grid) })
+    this.setState({ grid: toggle(row, col, this.state.grid) });
   }
 
   renderGrid = () => this.state.grid.map((rowContents, index) => {
