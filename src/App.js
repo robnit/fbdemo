@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import Box from './Box';
 import { toggle, generateGrid } from './utils'
-import './App.css';
 
 class App extends PureComponent {
   state = { grid: [] };
@@ -12,10 +11,14 @@ class App extends PureComponent {
 
   renderRow = (boxes, rowIndex) => {
     return (
-      <div className="row justify-content-center">
+      <div key={`rowIndex_${rowIndex}`} className="row justify-content-center">
         { boxes.map((value, columnIndex) => {
           const handleClick = () => this.handleToggle(rowIndex, columnIndex, this.state.grid);
-          return <Box onClick={handleClick} on={ value } />
+          return (
+            <div key={`row_${rowIndex}_col${columnIndex}`}>
+              <Box keyProp={`row_${rowIndex}_col${columnIndex}`} onClick={handleClick} on={ value } />
+            </div>
+          );
         }) }
       </div>
     );

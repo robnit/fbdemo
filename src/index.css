@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.box {
+  height: 40px;
+  width: 40px;
+}
+
+.box:hover {
+  filter: brightness(.8)
+}
+
+.on {
+  background-color: red;
+}
+
+.off {
+  background-color: white;
+}
