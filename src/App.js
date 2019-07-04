@@ -5,7 +5,16 @@ import './App.css';
 
 function App() {
   return (
-    <div class="container">
+    <div className="container mt-5">
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
+      <Grid/>
       <Grid/>
     </div>
   );

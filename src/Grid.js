@@ -4,7 +4,7 @@ import Box from './Box';
 export default function Grid() {
 
   return (
-    <div className="row">
+    <div className="row justify-content-center">
       <Box />
       <Box />
       <Box />
