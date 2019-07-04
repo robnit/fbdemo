@@ -7,7 +7,7 @@ class App extends PureComponent {
   state = { grid: [] };
 
   componentDidMount() {
-    this.setState({ grid: generateGrid(13) })
+    this.setState({ grid: generateGrid(15) })
   }
 
   renderRow = (boxes, rowIndex) => {
