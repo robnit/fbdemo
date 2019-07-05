@@ -6,7 +6,7 @@ class App extends PureComponent {
   state = { grid: [] };
 
   componentDidMount() {
-    this.setState({ grid: generateGrid(15) });
+    this.setState({ grid: generateGrid(14) });
   }
 
   handleToggle = (row, col) => {
@@ -24,7 +24,7 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div className="container mt-3">
+      <div className="container mt-1">
         { this.renderGrid() }
       </div>
     );

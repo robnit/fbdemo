@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #20232a;
 }
 
 code {
@@ -15,16 +16,21 @@ code {
 .box {
   height: 40px;
   width: 40px;
+  margin: 2px;
 }
 
 .box:hover {
-  filter: brightness(.8)
+  filter: brightness(.8);
+}
+
+.box:active {
+  filter: brightness(5);
 }
 
 .on {
-  background-color: red;
+  background-color: #61dafb;
 }
 
 .off {
-  background-color: white;
+  background-color: #D0FFA2;
 }

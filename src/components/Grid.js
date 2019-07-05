@@ -1,5 +1,10 @@
 import React from 'react';
 import Box from './Box';
+// import { connect } from 'react-redux';
+
+// function mapStateToProps(state, props) {
+//   return props;
+// }
 
 export default function Grid({ boxes, rowIndex, handleToggle }) {
   return boxes.map((value, columnIndex) => {
@@ -12,3 +17,5 @@ export default function Grid({ boxes, rowIndex, handleToggle }) {
     );
   });
 }
+
+// export default connect(mapStateToProps)(Grid);
