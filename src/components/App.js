@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Row from './Row.js';
-import { generateBoxes } from '../redux/actions.js';
-import { getGrid } from '../api';
+import { watchGrid } from '../redux/actions.js';
 
 function mapStateToProps(state) {
   return {
@@ -10,12 +9,16 @@ function mapStateToProps(state) {
   };
 }
 
+const mapDispatchToProps = (dispatch) => {
+  const unsubscribe = watchGrid(dispatch);
+  return { unsubscribe };
+};
+
 class App extends Component {
   static defaultProps = { gridSize: 0 }
 
-  componentDidMount() {
-    this.props.dispatch(generateBoxes());
-    getGrid();
+  componentWillUnmount() {
+    this.props.unsubscribe();
   }
 
   renderGrid = () => {
@@ -43,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

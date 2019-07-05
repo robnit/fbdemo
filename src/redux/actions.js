@@ -1,5 +1,7 @@
 import { GET_SQUARES, SELECT_SQUARE } from './reducer';
 import { generateRow, toggle } from '../utils';
+import { gridRef } from '../api/firebase.js';
+
 
 export function generateBoxes() {
   const size = 14;
@@ -13,8 +15,15 @@ export function generateBoxes() {
   };
 }
 
-export function subscribeToGrid() {
-  // stuff
+
+export function watchGrid(dispatch) {
+  return gridRef.on('value', (data) => {
+    const grid = data.val();
+    const size = grid.length;
+
+    const payload = { grid, size };
+    dispatch({ type: GET_SQUARES, payload });
+  });
 }
 
 export function selectBox(row, col) {
