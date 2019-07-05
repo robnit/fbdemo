@@ -11,7 +11,7 @@ function Grid({ boxes, rowIndex, handleToggle }) {
     const handleClick = () => handleToggle(rowIndex, columnIndex);
 
     return (
-      <div key={`${Math.random()}row_${rowIndex}_col${columnIndex}`}>
+      <div key={`row_${rowIndex}_col${columnIndex}`}>
         <Box onClick={handleClick} on={ value } />
       </div>
     );
