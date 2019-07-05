@@ -1,29 +1,36 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Grid from './Grid.js';
+import Row from './Row.js';
 import { getBoxes } from '../redux/actions.js';
 
 function mapStateToProps(state) {
   return {
-    gridLength: Object.keys(state.grid).length,
-    grid: state.grid,
+    gridSize: state.size,
   };
 }
 
-class App extends PureComponent {
-  static defaultProps = { grid: [] }
+class App extends Component {
+  static defaultProps = { gridSize: 0 }
 
   componentDidMount() {
     this.props.dispatch(getBoxes());
   }
 
-  renderGrid = () => this.props.grid.map((rowContents, index) => {
-    return (
-      <div key={JSON.stringify(rowContents)} className="row justify-content-center">
-        <Grid boxes={rowContents} rowIndex={index}/>
-      </div>
-    );
-  });
+  renderGrid = () => {
+    const { gridSize } = this.props;
+    const baseGrid = [];
+    for (let i = 0; i < this.props.gridSize; i++) {
+      baseGrid.push(i);
+    }
+
+    return baseGrid.map((index) => {
+      return (
+        <div key={index} className="row justify-content-center">
+          <Row rowIndex={index} gridSize={gridSize}/>
+        </div>
+      );
+    });
+  }
 
   render() {
     return (

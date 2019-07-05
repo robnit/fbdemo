@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectBox } from '../redux/actions';
 
-
 function mapStateToProps(state, props) {
   const { rowIndex, columnIndex } = props;
   const isOn = state.grid[rowIndex][columnIndex];
