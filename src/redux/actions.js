@@ -1,7 +1,7 @@
 import { GET_SQUARES, SELECT_SQUARE } from './reducer';
 import { generateGrid, toggle } from '../utils';
 
-export function getSquares() {
+export function getBoxes() {
   const grid = generateGrid(14);
   return dispatch => {
     return dispatch({
@@ -11,7 +11,7 @@ export function getSquares() {
   };
 }
 
-export function selectSquare(row, col) {
+export function selectBox(row, col) {
   return (dispatch, getState) => {
     const oldGrid = getState().grid;
     const newGrid = toggle(row, col, oldGrid);

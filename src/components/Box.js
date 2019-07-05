@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectSquare } from '../redux/actions';
+import { selectBox } from '../redux/actions';
 
 
 function mapStateToProps(state, props) {
@@ -10,7 +10,7 @@ function mapStateToProps(state, props) {
 }
 
 function Box({ isOn, dispatch, rowIndex, columnIndex }) {
-  const handleClick = () => dispatch(selectSquare(rowIndex, columnIndex));
+  const handleClick = () => dispatch(selectBox(rowIndex, columnIndex));
   return (
     <div className={ `box ${isOn ? 'on' : 'off'}`} onClick={ handleClick }></div>
   );

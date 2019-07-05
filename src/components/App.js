@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Grid from './Grid.js';
-import { getSquares } from '../redux/actions.js';
+import { getBoxes } from '../redux/actions.js';
 
 function mapStateToProps(state) {
   return {
@@ -14,7 +14,7 @@ class App extends PureComponent {
   static defaultProps = { grid: [] }
 
   componentDidMount() {
-    this.props.dispatch(getSquares());
+    this.props.dispatch(getBoxes());
   }
 
   renderGrid = () => this.props.grid.map((rowContents, index) => {
