@@ -1,7 +1,7 @@
 import { GET_SQUARES, SELECT_SQUARE } from './reducer';
 import { generateRow, toggle } from '../utils';
 
-export function getBoxes() {
+export function generateBoxes() {
   const size = 14;
   const grid = generateRow(size);
 
@@ -11,6 +11,10 @@ export function getBoxes() {
       payload: { grid, size }
     });
   };
+}
+
+export function subscribeToGrid() {
+  // stuff
 }
 
 export function selectBox(row, col) {
