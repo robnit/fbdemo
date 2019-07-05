@@ -1,21 +1,21 @@
 import React from 'react';
 import Box from './Box';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-// function mapStateToProps(state, props) {
-//   return props;
-// }
+function mapStateToProps(state, props) {
+  return props;
+}
 
-export default function Grid({ boxes, rowIndex, handleToggle }) {
+function Grid({ boxes, rowIndex, handleToggle }) {
   return boxes.map((value, columnIndex) => {
     const handleClick = () => handleToggle(rowIndex, columnIndex);
 
     return (
-      <div key={`row_${rowIndex}_col${columnIndex}`}>
+      <div key={`${Math.random()}row_${rowIndex}_col${columnIndex}`}>
         <Box onClick={handleClick} on={ value } />
       </div>
     );
   });
 }
 
-// export default connect(mapStateToProps)(Grid);
+export default connect(mapStateToProps)(Grid);
