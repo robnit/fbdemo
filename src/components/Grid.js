@@ -1,14 +1,15 @@
 import React from 'react';
-import Box from './Box';
 import { connect } from 'react-redux';
+import { selectSquare } from '../redux/actions';
+import Box from './Box';
 
 function mapStateToProps(state, props) {
   return props;
 }
 
-function Grid({ boxes, rowIndex, handleToggle }) {
+function Grid({ boxes, rowIndex, handleToggle, dispatch }) {
   return boxes.map((value, columnIndex) => {
-    const handleClick = () => handleToggle(rowIndex, columnIndex);
+    const handleClick = () => dispatch(selectSquare(rowIndex, columnIndex));
 
     return (
       <div key={`row_${rowIndex}_col${columnIndex}`}>

@@ -3,10 +3,10 @@ export const SELECT_SQUARE = 'SELECT_SQUARE';
 
 export default function (state = { grid: [] }, { type, payload }) {
   switch(type) {
+  case SELECT_SQUARE:
   case GET_SQUARES: {
     return { ...state, grid: [ ...payload ] };
   }
-  case SELECT_SQUARE:
   default:
     return state;
   }

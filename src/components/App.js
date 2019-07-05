@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Grid from './Grid.js';
-import { toggle } from '../utils';
 import { getSquares } from '../redux/actions.js';
 
 function mapStateToProps(state) {
@@ -12,15 +11,10 @@ function mapStateToProps(state) {
 }
 
 class App extends PureComponent {
-  state = { grid: [] };
   static defaultProps = { grid: [] }
 
   componentDidMount() {
     this.props.dispatch(getSquares());
-  }
-
-  handleToggle = (row, col) => {
-    this.setState({ grid: toggle(row, col, this.props.grid) });
   }
 
   renderGrid = () => this.props.grid.map((rowContents, index) => {
@@ -32,7 +26,6 @@ class App extends PureComponent {
   });
 
   render() {
-    // console.log(this.props)
     return (
       <div className="container mt-1">
         { this.renderGrid() }
