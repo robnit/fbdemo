@@ -20,7 +20,7 @@ class App extends PureComponent {
   renderGrid = () => this.props.grid.map((rowContents, index) => {
     return (
       <div key={JSON.stringify(rowContents)} className="row justify-content-center">
-        <Grid boxes={rowContents} rowIndex={index} handleToggle={this.handleToggle}/>
+        <Grid boxes={rowContents} rowIndex={index}/>
       </div>
     );
   });
