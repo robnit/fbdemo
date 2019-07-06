@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Row from './Row.js';
+import { generateBoxes } from '../api';
 import { watchGrid } from '../redux/actions.js';
 
 function mapStateToProps(state) {
@@ -16,6 +17,12 @@ const mapDispatchToProps = (dispatch) => {
 
 class App extends Component {
   static defaultProps = { gridSize: 0 }
+
+  componentDidMount() {
+    document.addEventListener('keydown', e => {
+      if (e.isComposing || e.keyCode === 88) generateBoxes();
+    });
+  }
 
   componentWillUnmount() {
     this.props.unsubscribe();
@@ -39,7 +46,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container mt-1">
+      <div className="container mt-3">
         { this.renderGrid() }
       </div>
     );

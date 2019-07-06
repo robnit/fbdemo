@@ -34,3 +34,11 @@ code {
 .off {
   background-color: #D0FFA2;
 }
+
+.row {
+  flex-wrap: nowrap;
+}
+
+.container {
+  max-width: 100%;
+}

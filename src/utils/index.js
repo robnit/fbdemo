@@ -24,7 +24,7 @@ export function generateRow(size) {
   let output = Array(size).fill([]);
   output = output.map(() => row.slice());
 
-  for (let i = 0; i < 200; i += 1) {
+  for (let i = 0; i < (size * 10); i += 1) {
     const randoX = Math.floor(Math.random() * size);
     const randoY = Math.floor(Math.random() * size);
     output = toggle(randoX, randoY, output);

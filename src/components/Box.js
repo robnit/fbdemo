@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectBox } from '../redux/actions';
+import { selectBox } from '../api';
 
 function mapStateToProps(state, props) {
   const { rowIndex, columnIndex } = props;
@@ -8,11 +8,9 @@ function mapStateToProps(state, props) {
   return { isOn };
 }
 
-function Box({ isOn, dispatch, rowIndex, columnIndex }) {
-  const handleClick = () => dispatch(selectBox(rowIndex, columnIndex));
-  return (
-    <div className={ `box ${isOn ? 'on' : 'off'}`} onClick={ handleClick }></div>
-  );
+function Box({ isOn, rowIndex, columnIndex }) {
+  const handleClick = () => selectBox(rowIndex, columnIndex);
+  return <div className={ `box ${isOn ? 'on' : 'off'}`} onClick={ handleClick } />;
 }
 
 export default connect(mapStateToProps)(Box);
