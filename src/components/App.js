@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Row from './Row.js';
-import { getBoxes } from '../redux/actions.js';
+import { getGrid } from '../redux/actions.js';
 
 function mapStateToProps(state) {
   return {
@@ -13,7 +13,7 @@ class App extends Component {
   static defaultProps = { gridSize: 0 }
 
   componentDidMount() {
-    this.props.dispatch(getBoxes());
+    this.props.dispatch(getGrid());
   }
 
   renderGrid = () => {

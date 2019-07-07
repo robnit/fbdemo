@@ -1,3 +1,4 @@
+// firebase.json
 {
 "hosting": {
   "public": "build",
@@ -8,3 +9,4 @@
   ]
 }
 }
+
