@@ -15,3 +15,4 @@ firebase.initializeApp(firebaseConfig);
 
 const databaseRef = firebase.database().ref();
 export const gridRef = databaseRef.child('grid');
+export const inputRef = databaseRef.child('input');
