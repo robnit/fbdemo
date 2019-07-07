@@ -5,11 +5,11 @@ import { selectBox } from '../api';
 function mapStateToProps(state, props) {
   const { rowIndex, columnIndex } = props;
   const isOn = state.grid[rowIndex][columnIndex];
-  return { isOn };
+  return { grid: state.grid, isOn };
 }
 
-function Box({ isOn, rowIndex, columnIndex }) {
-  const handleClick = () => selectBox(rowIndex, columnIndex);
+function Box({ isOn, rowIndex, columnIndex, grid }) {
+  const handleClick = () => selectBox(rowIndex, columnIndex, grid);
   return <div className={ `box ${isOn ? 'on' : 'off'}`} onClick={ handleClick } />;
 }
 

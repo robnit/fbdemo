@@ -19,7 +19,7 @@ export function toggle(row, cell, arr) {
   return grid;
 }
 
-export function generateRow(size) {
+export function generateGrid(size) {
   const row = Array(size).fill(false);
   let output = Array(size).fill([]);
   output = output.map(() => row.slice());

@@ -1,21 +1,16 @@
 import { gridRef } from './firebase.js';
-import { generateRow, toggle } from '../utils';
+import { generateGrid, toggle } from '../utils';
 
 
 export function generateBoxes() {
-  const size = Number(prompt('how big?'));
-
-  if (typeof size !== 'number') return null;
-
-  const newGrid = generateRow(size);
+  // const size = Number(prompt('how big?'));
+  // if (typeof size !== 'number') return null;
+  const size = 30;
+  const newGrid = generateGrid(size);
   gridRef.set(newGrid);
 }
 
-export function selectBox(row, col) {
-  return (_, getState) => {
-    const oldGrid = getState().grid;
-    const newGrid = toggle(row, col, oldGrid);
-
-    gridRef.set(newGrid);
-  };
+export function selectBox(row, col, grid) {
+  const newGrid = toggle(row, col, grid);
+  gridRef.set(newGrid);
 }
