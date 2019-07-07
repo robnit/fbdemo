@@ -1,9 +1,9 @@
 import { GET_GRID, SELECT_BOX } from './reducer';
-import { generateRow, toggle } from '../utils';
+import { generateGrid, toggle } from '../utils';
 
 export function getGrid() {
   const size = 14;
-  const grid = generateRow(size);
+  const grid = generateGrid(size);
 
   return dispatch => {
     return dispatch({
