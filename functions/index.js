@@ -8,10 +8,5 @@ exports.selectBox = functions.database.ref('/input/{row}/{column}')
       const { row, column } = context.params;
       const gridRef = app.database().ref().child('grid');
 
-      return gridRef.once('value', (data) => {
-        const oldGrid = data.val();
-        const newGrid = toggle(row, column, oldGrid);
-
-        return gridRef.set(newGrid);
-      });
+      return gridRef.transaction((oldGrid) => (oldGrid !== null) ? toggle(row, column, oldGrid) : 0);
     });
