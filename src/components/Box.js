@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectBox } from '../api';
+import { selectBox } from '../firebase/api.js';
 
 function mapStateToProps(state, props) {
   const { rowIndex, columnIndex } = props;
-  const isOn = state.grid[rowIndex][columnIndex];
-  return { grid: state.grid, isOn };
+  return {
+    isOn: state.grid[rowIndex][columnIndex],
+  };
 }
 
-function Box({ isOn, rowIndex, columnIndex, grid }) {
-  const handleClick = () => selectBox(rowIndex, columnIndex, grid);
+function Box({ isOn, rowIndex, columnIndex }) {
+  const handleClick = () => selectBox(rowIndex, columnIndex);
+
   return <div className={ `box ${isOn ? 'on' : 'off'}`} onClick={ handleClick } />;
 }
 

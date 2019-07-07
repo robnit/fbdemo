@@ -1,5 +1,5 @@
 import { GET_BOXES } from './reducer';
-import { gridRef } from '../api/firebase.js';
+import { gridRef } from '../firebase/database.js';
 
 export function watchGrid(dispatch) {
   return gridRef.on('value', (data) => {

@@ -1,4 +1,4 @@
-import { gridRef } from './firebase.js';
+import { gridRef } from './database.js';
 import { generateGrid, toggle } from '../utils';
 
 
@@ -10,7 +10,8 @@ export function generateBoxes() {
   gridRef.set(newGrid);
 }
 
-export function selectBox(row, col, grid) {
-  const newGrid = toggle(row, col, grid);
-  gridRef.set(newGrid);
+export function selectBox(row, col) {
+  gridRef.transaction((oldGrid) => {
+    return (oldGrid !== null) ? toggle(row, col, oldGrid) : 'Unexpected Value :(';
+  });
 }

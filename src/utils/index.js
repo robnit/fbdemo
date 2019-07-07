@@ -1,18 +1,18 @@
-export function toggle(row, cell, arr) {
-  if (row > arr.length || (arr[row] && cell > arr[row].length)) return arr;
+export function toggle(row, cell, grid) {
+  if (row > grid.length || (grid[row] && cell > grid[row].length)) return grid;
 
-  const grid = [...arr];
+  const newGrid = [...grid];
   function flip(x, y) {
-    grid[x][y] = !grid[x][y];
+    newGrid[x][y] = !newGrid[x][y];
   }
 
-  grid[row][cell] = !grid[row][cell];
+  newGrid[row][cell] = !newGrid[row][cell];
   if (row > 0) flip(row - 1, cell);
   if (cell > 0) flip(row, cell - 1);
-  if (row < grid.length - 1) {
+  if (row < newGrid.length - 1) {
     flip(row + 1, cell);
   }
-  if (cell < grid[row].length - 1) {
+  if (cell < newGrid[row].length - 1) {
     flip(row, cell + 1);
   }
 
