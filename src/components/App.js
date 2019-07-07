@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import Row from './Row.js';
 import { getGrid } from '../redux/actions.js';
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     gridSize: state.size,
   };
-}
+};
 
 class App extends Component {
   static defaultProps = { gridSize: 0 }

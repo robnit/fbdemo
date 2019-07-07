@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectBox } from '../redux/actions';
 
-function mapStateToProps(state, props) {
+const mapStateToProps = (state, props) => {
   const { rowIndex, columnIndex } = props;
   const isOn = state.grid[rowIndex][columnIndex];
   return { isOn };
-}
+};
 
 function Box({ isOn, dispatch, rowIndex, columnIndex }) {
   const handleClick = () => dispatch(selectBox(rowIndex, columnIndex));
