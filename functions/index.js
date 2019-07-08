@@ -4,9 +4,12 @@ const app = admin.initializeApp(functions.config().firebase);
 const toggle = require('./utils.js')
 
 exports.selectBox = functions.database.ref('/input/{row}/{column}')
-    .onUpdate((_, context) => {
-      const { row, column } = context.params;
-      const gridRef = app.database().ref().child('grid');
+  .onUpdate((_, context) => {
+    const { row, column } = context.params;
+    const gridRef = app.database().ref('grid');
 
-      return gridRef.transaction((oldGrid) => (oldGrid !== null) ? toggle(row, column, oldGrid) : 0);
+    return gridRef.transaction((oldGrid) => {
+      if (oldGrid === null) return null;
+      return toggle(row, column, oldGrid);
     });
+  });
